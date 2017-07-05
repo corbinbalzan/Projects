@@ -1,82 +1,55 @@
-<!DOCTYPE html> 
-<head> 
+<!DOCTYPE html>
 
+<head>
 
-	<link href='todo.css' rel='stylesheet' type='text/css'> 
+	<title> todo </title>
+	<link href='todo.css' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
 
-</head> 
+</head>
+
+
 <body>
-    <div class="main-container">
 
+<div class="main-container">
 
- 		<h1 class='main-title'>To-Do List Application </h1>  
- 		<h3 class='main-h3'> By: Corbin Balzan </h3>
+	<h1 class='main-title'>To-Do List Application </h1>
+	<h3 class='main-h3'> By: Corbin Balzan </h3>
 
- 		<div class='content'>
+	<div class='content'>
 
- 		<div class='adder'>
- 		<div class='h3-wrap group'> 
-    		<h3 class='h3-title'> Add Item </h3> 
-    		
-    	</div>
-    		<!--<label for='addItem'> Add Here </label> -->
-    		<input type="text" id='addItem' value='Type Here'></input>
+		<div class='adder'>
+
+			<div class='h3-wrap group'>
+				<h3 class='h3-title'> Add Item </h3>
+			</div>
+
+			<!--<label for='addItem'> Add Here </label> -->
+			<input type="text" id='addItem' value='Type Here'></input>
     		<button id='addButton1'> Submit </button>
-    	</div>
+
+    	</div><!-- adder -->
 
 
-    	<div class='items-list'>
+		<div class='items-list'>
 
-	    	<div class='h3-wrap group'>
-	    		<h3 class='h3-title'> Incomplete Items </h3>
-	    	</div>
-	    		<ul id="incomplete"> 
+			<div class='h3-wrap group'>
+				<h3 class='h3-title'> Incomplete Items </h3>
+			</div>
 
-	    		</ul> 
-	    	<div class='h3-wrap group'> 
-	    		<h3 class='h3-title'> Completed Items </h3>	
-	    	</div>
-	    		<ul id="complete"> 
-	    		</ul> 
+			<ul id="incomplete"></ul>
 
-    	</div>
-    	</div>
-    </div>
+			<div class='h3-wrap group'>
+				<h3 class='h3-title'> Completed Items </h3>
+			</div>
 
- 
-  </body>
-	<script src='todo.js'> </script>
+    		<ul id="complete"></ul>
 
+    	</div><!-- item-list -->
 
+	</div><!-- content -->
 
+</div><!-- main-container -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script src='todo.js'></script>
+</body>
