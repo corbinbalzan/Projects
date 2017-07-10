@@ -1,19 +1,17 @@
-// Main Goal: Add interactivity to the template
+//Define commonly used items
 
-// Create a list to hold the Completed
-// List for the incomplete 
 var inputTask = document.getElementById("addItem");
-var addButton = document.getElementsByTagName("button")[0];
+var addButton = document.getElementById("addButton1");
 var incomplete = document.getElementById("incomplete");
 var complete = document.getElementById("complete");
 
 
 
-// Create a new item for the incomplete upon pressing Add
+// Create a new item for the incomplete after pressing Add or hitting enter
 
 var createTask = function(task){
 
-	//create each part of added item
+	//create each part of the item
 	var listItem = document.createElement("li");
 	var inputCheck = document.createElement("input");
 	var label = document.createElement("label");
@@ -21,43 +19,44 @@ var createTask = function(task){
 	var buttonDelete = document.createElement("button");
 	var editInput = document.createElement("input");
 
-	// Modify the types of each item 
-
+	// Change the types of the items 
 	inputCheck.type = "checkbox";
 	editInput.type = "text";
-
 	buttonEdit.innerText = "Edit";
 	buttonDelete.innerText = "Delete";
 	buttonEdit.className = "edit";
 	buttonEdit.id = 'editt';
 	buttonDelete.className = "delete";
-	editInput.className = "editor"
-	editInput.id = 'edittor'
-	// Make the label of this new item the input value
+	editInput.className = "editor";
+	editInput.id = 'edittor';
+
+	// The label and text value both become the value in the add item field
 
 	label.innerText = task; 
 	editInput.value = task;
 
+
+  //The created items are appended to the list item  
 	listItem.appendChild(inputCheck);
 	listItem.appendChild(label);
 	listItem.appendChild(editInput);
 	listItem.appendChild(buttonEdit);
 	listItem.appendChild(buttonDelete);
     
-  
+  // Event Listener for the key press  
     editInput.addEventListener("keyup", function(event) {
     event.preventDefault();
     if (event.keyCode == 13) {
         buttonEdit.click();
     }
-});
+  });
       
 	return listItem;
 
 
 };
 
-// Add the text to the incomplete 
+// Add the item to the incomplete list 
 
 var addItem = function(){
 	var value1 = createTask(inputTask.value);
@@ -67,6 +66,7 @@ var addItem = function(){
 	TaskEvents(value1, taskCompleted);
 };
 
+// Add the item when there is a click on add button 
 addButton.addEventListener("click", addItem);
 
 
@@ -82,7 +82,7 @@ var taskCompleted = function() {
 
 
 
-// Edit the text when pressing the edit button 
+// Edit the text when pressing the edit button. 
 
 var editTask = function() {
 
@@ -110,7 +110,6 @@ var editTask = function() {
 
 
 // Delete the item when pressing the Delete button 
-
 var deleteTask = function(){
 	var lItem = this.parentNode;
 	var ul = lItem.parentNode;
@@ -135,28 +134,10 @@ var TaskEvents = function(taskItem, checkBoxEventHandler) {
   editButton.onclick = editTask;  
   deleteButton.onclick = deleteTask;
   checkBox.onchange = checkBoxEventHandler;
-/*  
-  editButton.addEventListener('keyup', function() {
-      event.preventDefault();
-      if (event.keyCode == 13)){
-        editTask;
-      }
-  
-  var buttons = document.getElementsByTagName('input');
-  
-  for (var i=0; i < buttons.length; i++) {
-    buttons[i].addEventListener('keyup', function() {
-      event.preventDefault();
-      if (event.keyCode == 13) {
-          document.getElementsByClassName("edit").click();
-          editButton[i].addEventListener('click', function() {
-          alert(this.textContent);
-      }
-    });
-  }
-*/
+
 }
 
+// Listen for keyup on the add item button 
 document.getElementById("addItem")
     .addEventListener("keyup", function(event) {
     event.preventDefault();
@@ -164,29 +145,3 @@ document.getElementById("addItem")
         document.getElementById("addButton1").click();
     }
 });
-
-
-document.getElementsByTagName("input")[2]
-    .addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode == 13) {
-        document.getElementsByTagName("input")[3].click();
-    }
-});
-
-
-   
-/*
-var buttons = document.getElementsByClassName('editor');
-
-for (var i=0; i < buttons.length; i++) {
-  buttons[i].addEventListener('keyup', function() {
-    event.preventDefault();
-    if (event.keyCode == 13) {
-        document.getElementByClassName("edit").click();
-        editTask;
-    };
-  });
-}
-
-*/
